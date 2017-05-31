@@ -30,23 +30,35 @@ public class HerniPlan {
      */
     private void zalozProstoryHry() {
         // vytvářejí se jednotlivé prostory
-        Prostor domecek = new Prostor("domeček","domeček, ve kterém bydlí Karkulka");
-        Prostor chaloupka = new Prostor("chaloupka", "chaloupka, ve které bydlí babička Karkulky");
-        Prostor jeskyne = new Prostor("jeskyně","stará plesnivá jeskyně");
-        Prostor les = new Prostor("les","les s jahodami, malinami a pramenem vody");
-        Prostor hlubokyLes = new Prostor("hluboký_les","temný les, ve kterém lze potkat vlka");
-        
+        Prostor trh = new Prostor("Рынок","domeček, ve kterém bydlí Karkulka");
+        Prostor zakoulki = new Prostor("Закаулки", "chaloupka, ve které bydlí babička Karkulky");
+        Prostor namesti = new Prostor("Площадь","temný les, ve kterém lze potkat vlka");
+        Prostor palac = new Prostor("Дворец","temný les, ve kterém lze potkat vlka");
+        Prostor ulice = new Prostor("Уличка","stará plesnivá jeskyně");
+        Prostor aley = new Prostor("Алея","les s jahodami, malinami a pramenem vody");
+        Prostor trida = new Prostor("Хз","les s jahodami, malinami a pramenem vody");
+        Prostor les = new Prostor("Лес","les s jahodami, malinami a pramenem vody");
+        Prostor pole = new Prostor("Поле","les s jahodami, malinami a pramenem vody");
+
         // přiřazují se průchody mezi prostory (sousedící prostory)
-        domecek.setVychod(les);
-        les.setVychod(domecek);
-        les.setVychod(hlubokyLes);
-        hlubokyLes.setVychod(les);
-        hlubokyLes.setVychod(jeskyne);
-        hlubokyLes.setVychod(chaloupka);
-        jeskyne.setVychod(hlubokyLes);
-        chaloupka.setVychod(hlubokyLes);
+        trh.setVychod(zakoulki);
+
+        zakoulki.setVychod(namesti);
+        zakoulki.setVychod(ulice);
+
+        namesti.setVychod(zakoulki);
+        namesti.setVychod(aley);
+        namesti.setVychod(palac);
+
+        palac.setVychod(ulice);
+
+        aley.setVychod(namesti);
+        aley.setVychod(trida);
+
+        ulice.setVychod();
+
                 
-        aktualniProstor = domecek;  // hra začíná v domečku       
+        aktualniProstor = trh;  // hra začíná v domečku
     }
     
     /**
