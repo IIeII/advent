@@ -25,6 +25,7 @@ public class Hra implements IHra {
         platnePrikazy = new SeznamPrikazu();
         platnePrikazy.vlozPrikaz(new PrikazNapoveda(platnePrikazy));
         platnePrikazy.vlozPrikaz(new PrikazJdi(herniPlan));
+        platnePrikazy.vlozPrikaz(new PrikazProzkoumej(herniPlan.getAktualniProstor()));
         platnePrikazy.vlozPrikaz(new PrikazKonec(this));
     }
 
@@ -32,7 +33,7 @@ public class Hra implements IHra {
      *  Vrátí úvodní zprávu pro hráče.
      */
     public String vratUvitani() {
-        return "Vítejte!\n" +
+        return "Nazdar!\n" +
                "Toto je příběh o Červené Karkulce, babičce a vlkovi.\n" +
                "Napište 'nápověda', pokud si nevíte rady, jak hrát dál.\n" +
                "\n" +

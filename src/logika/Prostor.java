@@ -20,6 +20,7 @@ public class Prostor {
     private String nazev;
     private String popis;
     private Set<Prostor> vychody;   // obsahuje sousední místnosti
+    private Set<IInteraktiv> ojecty;   // obsahuje sousední místnosti
 
     /**
      * Vytvoření prostoru se zadaným popisem, např. "kuchyň", "hala", "trávník
@@ -47,6 +48,14 @@ public class Prostor {
      */
     public void setVychod(Prostor vedlejsi) {
         vychody.add(vedlejsi);
+    }
+
+
+    /**
+     * TODO:Add description
+     */
+    public void setInteraktivníObjekt(IInteraktiv object) {
+        ojecty.add(object);
     }
 
     /**
