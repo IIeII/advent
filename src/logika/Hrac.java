@@ -12,12 +12,22 @@ public class Hrac {
     private int armySize;
 
     public Hrac() {
-
+        armySize = 0;
         inventar = new HashSet<>();
     }
 
+    public void addToArmy(int count){
+        armySize += count;
+    }
+
+    public int getArmySize(){
+        return armySize;
+    }
+
     public void addItemToInventory(String itemName){
-        inventar.add(itemName);
+        if (itemName != null){
+            inventar.add(itemName);
+        }
     }
 
     public void removeItemFromInventory(String itemName){
@@ -38,6 +48,8 @@ public class Hrac {
         return inventar.isEmpty() ? null : result;
     }
 
-
+    public Boolean isEnouthSpaceInInventory (){
+        return inventar.size() < maxVelikostInvent;
+    }
 
 }

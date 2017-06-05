@@ -186,7 +186,7 @@ public class Prostor {
 
     public String hasLock(Prostor prostor){
         for (LockPair lock : locks){
-            if (lock.prostor == prostor){
+            if (lock.prostor == prostor && getInteractiveObjectByName(lock.entity.getName()) != null){
                 return lock.description;
             }
         }

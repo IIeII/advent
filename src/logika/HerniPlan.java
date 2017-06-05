@@ -33,23 +33,58 @@ public class HerniPlan {
     private void zalozProstoryHry() {
         // vytvářejí se jednotlivé prostory
         Prostor trh = new Prostor("Рынок","Рынок где можно встретить много странных личностей");
-        Entity donkey = new Entity("DONKEY", "Donkey which is kolaspsing your way", "Осел ушел, теперь ты можешь продолжить свой путь", null, "Mrkev", CommandType.INVENTORY_ITEM);
-        Entity trader = new Entity("TRADER", "Trader which has a lot of carrots, but wants to know what is S I M P R O ","Торговец любезно отдает тебе морковку, теперь она у тебя в инвентаре!", "Mrkev", "prosim", CommandType.COMMAND_ITEM);
+        Entity donkey = new Entity("осел", "Осел слишком голоден чтобы сдвинутся с места, вот если бы найти морковку...", "Осел ушел, теперь ты можешь продолжить свой путь", null, "Mrkev", CommandType.INVENTORY_ITEM, 0);
+        Entity trader = new Entity("торговец", "У торговца есть много морквы, и он с радостью поделиться если ты ему подскажешь что же кроется за буквами S I M P R O ","Торговец любезно отдает тебе морковку, теперь она у тебя в инвентаре!", "Mrkev", "prosim", CommandType.COMMAND_ITEM, 0);
         trh.setInteraktivníObjekt(donkey);
         trh.setInteraktivníObjekt(trader);
 
         Prostor zakoulki = new Prostor("Закаулки", "Закаулки межд домов, полные бродяг и мусора");
+        Entity box = new Entity("коробка", "Коробка на дне которой лежит ключ, используй ВЗЯТь чтобы поднять его", "Ключ добавлен тебе в инвентарь", "ключ", "взять", CommandType.COMMAND_ITEM, 0);
+        Entity arc0 = new Entity("лучник", "Лучник потерявший лук и надежду.. вот если бы вернуть ему лук, он бы присоеденился к твоей армии!","Лучник воспрял духом и присоеденился к вашей армии!", null, "лук", CommandType.INVENTORY_ITEM, 1);
+        zakoulki.setInteraktivníObjekt(box);
+        zakoulki.setInteraktivníObjekt(arc0);
+
         Prostor namesti = new Prostor("Площадь","Центральная площадь города");
-        Prostor palac = new Prostor("Дворец","Дворец где обитают властьимущие");
+        Entity arc1 = new Entity("лучник", "Это наемный лучник и пойдет с тобой только если ты ему заплатишь!","Лучник позвякивая монетой присоеденился к вашей армии!", null, "монета", CommandType.INVENTORY_ITEM, 1);
+        Entity mag = new Entity("волшебник", "Волшебник который знает слово которое откроет врата битвы, и поделиться лишь с тем кто знает умеет говорить абракадабра ","Волшебное слово для открытия врат битвы - рагнарок!", null, "абракадабра", CommandType.COMMAND_ITEM, 0);
+        namesti.setInteraktivníObjekt(arc1);
+        namesti.setInteraktivníObjekt(mag);
+
+        Prostor palac = new Prostor("Дворец","Дворец где обитают властьимущие, так же вы замечаете в конце дворца телепорт, интересно куда он ведет");
+        Entity arrows = new Entity("стрелы", "Кем-то потеряный колчан стрел, используй ВЗЯТь чтобы поднять его", "Колчан стрел добавлен тебе в инвентарь", "Стрелы", "взять", CommandType.COMMAND_ITEM, 0);
+        Entity arc2 = new Entity("лучник", "Лучник который совсем заскучал, он пойдет с тобой просто так, только пригласи его с собой коммандой ПОШЛИ!","Лучник присоеденился к вашей армии!", null, "пошли", CommandType.COMMAND_ITEM, 1);
+        palac.setInteraktivníObjekt(arrows);
+        palac.setInteraktivníObjekt(arc2);
+
         Prostor ulice = new Prostor("Уличка","Небольшая узкая уличка");
+        Entity chest = new Entity("сундук", "Сундук заперт на ключ, и только он сможет его открыть", "В сундуке ты находишь ЛУК и он уже добавлен в твой инвентарь", "лук", "ключ", CommandType.INVENTORY_ITEM, 0);
+        Entity mag2 = new Entity("фокусник", "У него есть кое-что для тебя, только угадай в какой руке! ","Фокусник разжимает руку а в ней монетка! Теперь она ваша!", "монета", "левая", CommandType.COMMAND_ITEM, 0);
+        ulice.setInteraktivníObjekt(chest);
+        ulice.setInteraktivníObjekt(mag2);
+
         Prostor aley = new Prostor("Алея","Алея избранных, полна статуй");
+        Entity arc3 = new Entity("снайпер", "Лучник потерявший колчан стрел,он бы пошел с тобой, но стрелять нечем","Лучник присоеденился к вашей армии!", null, "стрелы", CommandType.INVENTORY_ITEM, 1);
+        Entity arc4 = new Entity("ельф", "Лучник который пойдет с вами, но только если твоя армия будет больше 5, ато умирать не охотно!","Лучник присоеденился к вашей армии!", null, "пошли", CommandType.COMMAND_ITEM, 1);
+        aley.setInteraktivníObjekt(arc3);
+        aley.setInteraktivníObjekt(arc4);
+
         Prostor trida = new Prostor("Трида","Не знаю что это но что-то увлекательное");
+        Entity arc5 = new Entity("лучник", "Лучник уранил свою медаль за доблесть в фонтан, и отчаялся ее найти","Лучник присоеденился к вашей армии!", null, "медаль", CommandType.INVENTORY_ITEM, 1);
+        Entity fontan = new Entity("фонтан", "Фонтан просто фонтан, и кажется на дне что-то есть.. попробуй ИСКАТЬ и вдруг тебе повезет", "В очередной раз обшарив дно ты натыкаешься на медаль!", "медаль", "искать", CommandType.COMMAND_ITEM, 0);
+        trida.setInteraktivníObjekt(arc5);
+        trida.setInteraktivníObjekt(fontan);
+
         Prostor les = new Prostor("Лес","Темный лес с дендронами и эльфами");
+        Entity arc6 = new Entity("лучник", "Лучник который повидал многое.. предложи ему пойти с тобой и возможно тебе повезет","Лучник присоеденился к вашей армии!", null, "пошли", CommandType.COMMAND_ITEM, 1);
+        Entity guard = new Entity("страж", "Страж который ждет избранного, знающего кодовое слово!", "Страж провалился под землю и путь теперь свободен", null, "рагнарок", CommandType.COMMAND_ITEM, 0);
+        les.setInteraktivníObjekt(arc6);
+        les.setInteraktivníObjekt(guard);
+
         Prostor pole = new Prostor("Поле","Поле смертельного сражения");
 
         // přiřazují se průchody mezi prostory (sousedící prostory)
         trh.setVychod(zakoulki);
-        trh.setLock(zakoulki, donkey, "Осел козел преградил путь, ты не пройдешь!");
+        trh.setLock(zakoulki, donkey, "Осел преградил твой путь, к сожалению ты не пройдешь!");
 
         zakoulki.setVychod(namesti);
         zakoulki.setVychod(ulice);
@@ -71,6 +106,7 @@ public class HerniPlan {
 
         les.setVychod(ulice);
         les.setVychod(pole);
+        les.setLock(pole, guard, "Страж не пропустит никого, пока не услышит секретное слово!");
                 
         aktualniProstor = trh;  // hra začíná v trh
     }

@@ -20,23 +20,32 @@ public class PrikazMluvit implements IPrikaz {
 
         String inventoryItems = "В твоем рюкзаке ";
         String inventory1 = "пусто";
+        String inventory2 = "недостаточно места для продолжения!";
 
         if (parametry.length == 0) {
             return defaultText + "\n" + inventoryItems + (hrac.getInventoryItemsNames() == null ? inventory1 : hrac.getInventoryItemsNames());
         }
 
         IInteraktiv iobject = aktualniProstor.getInterrectiveObjectByAction(parametry[0]);
+
+        if (iobject != null && iobject.getReward() != null && !hrac.isEnouthSpaceInInventory()){
+            return inventoryItems + inventory2;
+        }
+
         if (iobject != null){
             if (iobject.getExpectedType() == CommandType.COMMAND_ITEM){
                 aktualniProstor.removeInteractiveObject(iobject);
-                if (iobject.getReward() != null){
-                    hrac.addItemToInventory(iobject.getReward());
-                }
+                hrac.addItemToInventory(iobject.getReward());
+                hrac.addToArmy(iobject.getArmyReward());
                 return iobject.getRewardDescription();
             }
 
-            if ((iobject.getExpectedType() == CommandType.INVENTORY_ITEM) && ){
-
+            if ((iobject.getExpectedType() == CommandType.INVENTORY_ITEM) && hrac.hasItemInInventory(parametry[0])){
+                aktualniProstor.removeInteractiveObject(iobject);
+                hrac.removeItemFromInventory(parametry[0]);
+                hrac.addItemToInventory(iobject.getReward());
+                hrac.addToArmy(iobject.getArmyReward());
+                return iobject.getRewardDescription();
             }
         }
 

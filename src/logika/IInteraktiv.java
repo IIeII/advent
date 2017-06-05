@@ -15,4 +15,6 @@ public interface IInteraktiv {
     public String getReward();
 
     public int getExpectedType();
+
+    public int getArmyReward();
 }
