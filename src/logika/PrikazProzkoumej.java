@@ -12,11 +12,12 @@ public class PrikazProzkoumej implements IPrikaz {
 
     @Override
     public String provedPrikaz(String... parametry) {
-        return null;
+        
+        return aktualniProstor.getObjectNames();
     }
 
     @Override
     public String getNazev() {
-        return null;
+        return NAZEV;
     }
 }

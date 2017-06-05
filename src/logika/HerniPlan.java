@@ -1,6 +1,8 @@
 package logika;
 
 
+import logika.interactiveObjects.Entity;
+
 /**
  *  Class HerniPlan - třída představující mapu a stav adventury.
  * 
@@ -31,7 +33,12 @@ public class HerniPlan {
     private void zalozProstoryHry() {
         // vytvářejí se jednotlivé prostory
         Prostor trh = new Prostor("Рынок","Рынок где можно встретить много странных личностей");
-        Prostor zakoulki = new Prostor("Закаулки", "Закаулки межд домой, полные бродяг и мусора");
+        Entity donkey = new Entity("DONKEY", "Donkey which is kolaspsing your way", "", "Mrkev", CommandType.INVENTORY_ITEM);
+        Entity trader = new Entity("TRADER", "Trader which has a lot of carrots, but wants to know what is S I M P R O ", "Mrkev", "prosim", CommandType.COMMAND_ITEM);
+        trh.setInteraktivníObjekt(donkey);
+        trh.setInteraktivníObjekt(trader);
+
+        Prostor zakoulki = new Prostor("Закаулки", "Закаулки межд домов, полные бродяг и мусора");
         Prostor namesti = new Prostor("Площадь","Центральная площадь города");
         Prostor palac = new Prostor("Дворец","Дворец где обитают властьимущие");
         Prostor ulice = new Prostor("Уличка","Небольшая узкая уличка");
@@ -42,6 +49,7 @@ public class HerniPlan {
 
         // přiřazují se průchody mezi prostory (sousedící prostory)
         trh.setVychod(zakoulki);
+        trh.setLock(zakoulki, donkey, "Осел козел преградил путь, ты не пройдешь!");
 
         zakoulki.setVychod(namesti);
         zakoulki.setVychod(ulice);

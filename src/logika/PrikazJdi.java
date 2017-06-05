@@ -44,6 +44,9 @@ class PrikazJdi implements IPrikaz {
         if (sousedniProstor == null) {
             return "Tam se odsud jít nedá!";
         }
+        if (plan.getAktualniProstor().hasLock(sousedniProstor) !=  null){
+            return plan.getAktualniProstor().hasLock(sousedniProstor);
+        }
         else {
             plan.setAktualniProstor(sousedniProstor);
             return sousedniProstor.dlouhyPopis();

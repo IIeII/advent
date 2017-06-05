@@ -4,5 +4,7 @@ public interface IInteraktiv {
     /**
      * TODO:description
      */
-    public String interakt();
+    public String getDescription();
+
+    public String getName();
 }

@@ -1,5 +1,7 @@
 package logika;
 
+import logika.interactiveObjects.Entity;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -20,7 +22,8 @@ public class Prostor {
     private String nazev;
     private String popis;
     private Set<Prostor> vychody;   // obsahuje sousední místnosti
-    private Set<IInteraktiv> ojecty;   // obsahuje sousední místnosti
+    private Set<IInteraktiv> objecty;   // obsahuje sousední místnosti
+    private Set<LockPair> locks;   // obsahuje sousední místnosti
 
     /**
      * Vytvoření prostoru se zadaným popisem, např. "kuchyň", "hala", "trávník
@@ -34,6 +37,8 @@ public class Prostor {
         this.nazev = nazev;
         this.popis = popis;
         vychody = new HashSet<>();
+        objecty = new HashSet<>();
+        locks = new HashSet<>();
     }
 
     /**
@@ -55,7 +60,7 @@ public class Prostor {
      * TODO:Add description
      */
     public void setInteraktivníObjekt(IInteraktiv object) {
-        ojecty.add(object);
+        objecty.add(object);
     }
 
     /**
@@ -173,5 +178,41 @@ public class Prostor {
      */
     public Collection<Prostor> getVychody() {
         return Collections.unmodifiableCollection(vychody);
+    }
+
+    public void setLock(Prostor prostor, Entity entity, String desciption) {
+        locks.add(new LockPair(prostor, entity, desciption));
+    }
+
+    public String hasLock(Prostor prostor){
+        for (LockPair lock : locks){
+            if (lock.prostor == prostor){
+                return lock.description;
+            }
+        }
+        return null;
+    }
+
+    public String getObjectNames() {
+
+        String result = "Осмотревшись вокруг вы видите: ";
+
+        for (IInteraktiv object : objecty){
+            result += object.getName() + " ";
+        }
+
+        return objecty.isEmpty() ? "Осмотревшись Вы не замечаете ничего интересного вокруг" : result;
+    }
+}
+
+class LockPair {
+    public Prostor prostor;
+    public Entity entity;
+    public String description;
+
+    public LockPair(Prostor prostor, Entity entity, String description) {
+        this.prostor = prostor;
+        this.entity = entity;
+        this.description = description;
     }
 }
