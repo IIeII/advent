@@ -22,11 +22,13 @@ public class Hra implements IHra {
      */
     public Hra() {
         herniPlan = new HerniPlan();
+        Hrac hrac = new Hrac();
         platnePrikazy = new SeznamPrikazu();
         platnePrikazy.vlozPrikaz(new PrikazNapoveda(platnePrikazy));
         platnePrikazy.vlozPrikaz(new PrikazJdi(herniPlan));
         platnePrikazy.vlozPrikaz(new PrikazProzkoumej(herniPlan.getAktualniProstor()));
         platnePrikazy.vlozPrikaz(new PrikazKonec(this));
+        platnePrikazy.vlozPrikaz(new PrikazMluvit(herniPlan.getAktualniProstor(), hrac));
     }
 
     /**

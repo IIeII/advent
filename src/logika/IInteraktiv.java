@@ -7,4 +7,12 @@ public interface IInteraktiv {
     public String getDescription();
 
     public String getName();
+
+    public String getExpectedCommand();
+
+    public String getRewardDescription();
+
+    public String getReward();
+
+    public int getExpectedType();
 }

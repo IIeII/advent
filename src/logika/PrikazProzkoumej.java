@@ -12,8 +12,22 @@ public class PrikazProzkoumej implements IPrikaz {
 
     @Override
     public String provedPrikaz(String... parametry) {
-        
-        return aktualniProstor.getObjectNames();
+
+        String result = "Осмотревшись вокруг вы видите: ";
+        String emptySpace = "Осмотревшись Вы не замечаете ничего интересного вокруг";
+        String wrongParam = "Не понимаю о чем ты. Проверь комманду";
+
+        if (parametry.length == 0) {
+            return aktualniProstor.getObjectNames() == null ? emptySpace : result + aktualniProstor.getObjectNames();
+        }
+
+        IInteraktiv object = aktualniProstor.getInteractiveObjectByName(parametry[0]);
+
+        if (object != null){
+            return object.getDescription();
+        }
+
+        return wrongParam;
     }
 
     @Override

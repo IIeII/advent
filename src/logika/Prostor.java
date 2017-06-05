@@ -195,13 +195,38 @@ public class Prostor {
 
     public String getObjectNames() {
 
-        String result = "Осмотревшись вокруг вы видите: ";
-
+        String result = "";
         for (IInteraktiv object : objecty){
             result += object.getName() + " ";
         }
 
-        return objecty.isEmpty() ? "Осмотревшись Вы не замечаете ничего интересного вокруг" : result;
+        return objecty.isEmpty() ? null : result;
+    }
+
+    public IInteraktiv getInteractiveObjectByName(String name) {
+
+        for (IInteraktiv object : objecty){
+           if (object.getName().equals(name)){
+               return object;
+           }
+        }
+
+        return null;
+    }
+
+    public IInteraktiv getInterrectiveObjectByAction(String action){
+
+        for (IInteraktiv object : objecty){
+            if (object.getExpectedCommand().equals(action)){
+                return object;
+            }
+        }
+
+        return null;
+    }
+
+    public void removeInteractiveObject(IInteraktiv iobject) {
+        objecty.remove(iobject);
     }
 }
 

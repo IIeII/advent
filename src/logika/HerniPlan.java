@@ -33,8 +33,8 @@ public class HerniPlan {
     private void zalozProstoryHry() {
         // vytvářejí se jednotlivé prostory
         Prostor trh = new Prostor("Рынок","Рынок где можно встретить много странных личностей");
-        Entity donkey = new Entity("DONKEY", "Donkey which is kolaspsing your way", "", "Mrkev", CommandType.INVENTORY_ITEM);
-        Entity trader = new Entity("TRADER", "Trader which has a lot of carrots, but wants to know what is S I M P R O ", "Mrkev", "prosim", CommandType.COMMAND_ITEM);
+        Entity donkey = new Entity("DONKEY", "Donkey which is kolaspsing your way", "Осел ушел, теперь ты можешь продолжить свой путь", null, "Mrkev", CommandType.INVENTORY_ITEM);
+        Entity trader = new Entity("TRADER", "Trader which has a lot of carrots, but wants to know what is S I M P R O ","Торговец любезно отдает тебе морковку, теперь она у тебя в инвентаре!", "Mrkev", "prosim", CommandType.COMMAND_ITEM);
         trh.setInteraktivníObjekt(donkey);
         trh.setInteraktivníObjekt(trader);
 
