@@ -8,7 +8,7 @@ public class Hrac {
 
     private int maxVelikostInvent = 3;
 
-    private HashSet<String> inventar;
+    private HashSet<InventoryItem> inventar;
     private int armySize;
 
     public Hrac() {
@@ -24,7 +24,7 @@ public class Hrac {
         return armySize;
     }
 
-    public void addItemToInventory(String itemName){
+    public void addItemToInventory(InventoryItem itemName){
         if (itemName != null){
             inventar.add(itemName);
         }
@@ -41,8 +41,8 @@ public class Hrac {
     public String getInventoryItemsNames (){
 
         String result = "";
-        for (String item : inventar){
-            result += item + " ";
+        for (InventoryItem item : inventar){
+            result += item.getName() + " ";
         }
 
         return inventar.isEmpty() ? null : result;

@@ -1,14 +1,14 @@
 package logika;
 
-public class PrikazMluvit implements IPrikaz {
+public class PrikazAction implements IPrikaz {
 
     private static final String NAZEV = "action";
-    private final Prostor aktualniProstor;
+    private final HerniPlan plan;
     private final Hrac hrac;
 
-    public PrikazMluvit(Prostor aktualniProstor, Hrac hrac) {
+    public PrikazAction(HerniPlan plan, Hrac hrac) {
 
-        this.aktualniProstor = aktualniProstor;
+        this.plan = plan;
         this.hrac = hrac;
     }
 
@@ -26,7 +26,7 @@ public class PrikazMluvit implements IPrikaz {
             return defaultText + "\n" + inventoryItems + (hrac.getInventoryItemsNames() == null ? inventory1 : hrac.getInventoryItemsNames());
         }
 
-        IInteraktiv iobject = aktualniProstor.getInterrectiveObjectByAction(parametry[0]);
+        IInteraktiv iobject = plan.getAktualniProstor().getInterrectiveObjectByAction(parametry[0]);
 
         if (iobject != null && iobject.getReward() != null && !hrac.isEnouthSpaceInInventory()){
             return inventoryItems + inventory2;
@@ -34,14 +34,14 @@ public class PrikazMluvit implements IPrikaz {
 
         if (iobject != null){
             if (iobject.getExpectedType() == CommandType.COMMAND_ITEM){
-                aktualniProstor.removeInteractiveObject(iobject);
+                plan.getAktualniProstor().removeInteractiveObject(iobject);
                 hrac.addItemToInventory(iobject.getReward());
                 hrac.addToArmy(iobject.getArmyReward());
                 return iobject.getRewardDescription();
             }
 
             if ((iobject.getExpectedType() == CommandType.INVENTORY_ITEM) && hrac.hasItemInInventory(parametry[0])){
-                aktualniProstor.removeInteractiveObject(iobject);
+                plan.getAktualniProstor().removeInteractiveObject(iobject);
                 hrac.removeItemFromInventory(parametry[0]);
                 hrac.addItemToInventory(iobject.getReward());
                 hrac.addToArmy(iobject.getArmyReward());

@@ -3,11 +3,11 @@ package logika;
 public class PrikazProzkoumej implements IPrikaz {
 
     private static final String NAZEV = "prozkoumej";
-    private Prostor aktualniProstor;
+    private HerniPlan plan;
 
-    public PrikazProzkoumej(Prostor aktualniProstor) {
+    public PrikazProzkoumej(HerniPlan plan) {
 
-        this.aktualniProstor = aktualniProstor;
+        this.plan = plan;
     }
 
     @Override
@@ -18,10 +18,10 @@ public class PrikazProzkoumej implements IPrikaz {
         String wrongParam = "Не понимаю о чем ты. Проверь комманду";
 
         if (parametry.length == 0) {
-            return aktualniProstor.getObjectNames() == null ? emptySpace : result + aktualniProstor.getObjectNames();
+            return plan.getAktualniProstor().getObjectNames() == null ? emptySpace : result + plan.getAktualniProstor().getObjectNames();
         }
 
-        IInteraktiv object = aktualniProstor.getInteractiveObjectByName(parametry[0]);
+        IInteraktiv object = plan.getAktualniProstor().getInteractiveObjectByName(parametry[0]);
 
         if (object != null){
             return object.getDescription();
