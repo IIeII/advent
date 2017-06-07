@@ -32,13 +32,13 @@ public class HerniPlan {
      */
     private void zalozProstoryHry() {
         // vytvářejí se jednotlivé prostory
-        Prostor trh = new Prostor("Рынок","Рынок где можно встретить много странных личностей");
+        Prostor trh = new Prostor("рынок","Вы оказались посреди рынка, где можно встретиться много интересного");
         Entity donkey = new Entity("осел", "Осел слишком голоден чтобы сдвинутся с места, вот если бы найти морковку...", "Осел ушел, теперь ты можешь продолжить свой путь", null, "Mrkev", CommandType.INVENTORY_ITEM, 0);
         Entity trader = new Entity("торговец", "У торговца есть много морквы, и он с радостью поделиться если ты ему подскажешь что же кроется за буквами S I M P R O ","Торговец любезно отдает тебе морковку, теперь она у тебя в инвентаре!", new InventoryItem("Mrkev"), "prosim", CommandType.COMMAND_ITEM, 0);
         trh.setInteraktivníObjekt(donkey);
         trh.setInteraktivníObjekt(trader);
 
-        Prostor zakoulki = new Prostor("Закаулки", "Закаулки межд домов, полные бродяг и мусора");
+        Prostor zakoulki = new Prostor("закаулки", "Закаулки межд домов, полные бродяг и мусора");
         Entity box = new Entity("коробка", "Коробка на дне которой лежит ключ, используй ВЗЯТь чтобы поднять его", "Ключ добавлен тебе в инвентарь", new InventoryItem("ключ"), "взять", CommandType.COMMAND_ITEM, 0);
         Entity arc0 = new Entity("лучник", "Лучник потерявший лук и надежду.. вот если бы вернуть ему лук, он бы присоеденился к твоей армии!","Лучник воспрял духом и присоеденился к вашей армии!", null, "лук", CommandType.INVENTORY_ITEM, 1);
         zakoulki.setInteraktivníObjekt(box);

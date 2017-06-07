@@ -1,17 +1,37 @@
 package logika;
 
+/**
+ *  Třída PrikazUse implementuje pro hru příkaz, který umožňuje použití příkazů a objektů z inventáře
+ *  Tato třída je součástí jednoduché textové hry.
+ *
+ *@author     Valeria Nekhimchuk
+ *@version    pro školní rok 2016/2017
+ */
 public class PrikazUse implements IPrikaz {
 
     private static final String NAZEV = "use";
     private final HerniPlan plan;
     private final Hrac hrac;
 
+    /**
+     *  Konstruktor třídy
+     *
+     *  @param plan herní plán, získat aktuální prostor
+     *  @param hrac copy třída hrac
+     */
     public PrikazUse(HerniPlan plan, Hrac hrac) {
 
         this.plan = plan;
         this.hrac = hrac;
     }
 
+    /**
+     *  Provádí příkaz "use". Implementuje mechanismus umožňuje použití týmu a věci do inventáře
+     *
+     *@param parametry - jako parametr přijímá příkazy, názvy
+     *
+     *@return zpráva, kterou vypíše hra hráči
+     */
     @Override
     public String provedPrikaz(String... parametry) {
 

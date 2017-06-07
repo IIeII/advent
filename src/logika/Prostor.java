@@ -182,6 +182,13 @@ public class Prostor {
         locks.add(new LockPair(prostor, entity, desciption));
     }
 
+    /**
+     * Metoda kontroluje, zda existuje na tomto místě je něco, co blokuje výstup z něj
+     *
+     * @param prostor - sousedníy prostor
+     * @return      Vrací hodnotu true v případě, že výstup je něco blokován
+     * prostor sousedí.
+     */
     public String hasLock(Prostor prostor){
         for (LockPair lock : locks){
             if (lock.prostor == prostor && getInteractiveObjectByName(lock.entity.getName()) != null){
@@ -191,6 +198,12 @@ public class Prostor {
         return null;
     }
 
+    /**
+     * Metoda vrací názvy všech objektů, které jsou v této lokalitě
+     *
+     * @return    vrací názvy všech objektů, které jsou v této lokalitě
+     * prostor sousedí.
+     */
     public String getObjectNames() {
 
         String result = "";
