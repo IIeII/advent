@@ -1,5 +1,12 @@
 package logika;
 
+/**
+ *  Třída PrikazAtack implementuje pro hru příkaz útok.
+ *  Tato třída je součástí jednoduché textové hry.
+ *
+ *@author     Valeria Nekhimchuk
+ *@version    pro školní rok 2016/2017
+ */
 public class PrikazAtack implements IPrikaz {
 
     private static final String NAZEV = "atack";
@@ -7,6 +14,13 @@ public class PrikazAtack implements IPrikaz {
     private final Hrac hrac;
     private Hra hra;
 
+    /**
+     *  Konstruktor třídy
+     *
+     *  @param plan herní plán, získat aktuální prostor
+     *  @param hrac copy třída hrac
+     *  @param hra odkaz na hru, která má ukončena
+     */
     public PrikazAtack(HerniPlan plan, Hrac hrac, Hra hra) {
 
         this.plan = plan;
@@ -14,6 +28,13 @@ public class PrikazAtack implements IPrikaz {
         this.hra = hra;
     }
 
+    /**
+     *  Provádí příkaz "atack". Implementuje mechanismus v konečném místnosti
+     *
+     *@param parametry - jako parametr přijímá věži k útoku
+     *
+     *@return zpráva, kterou vypíše hra hráči
+     */
     @Override
     public String provedPrikaz(String... parametry) {
 
@@ -54,6 +75,11 @@ public class PrikazAtack implements IPrikaz {
         return "Вы напали на башню но она оказалась пуста! В это время чудовище убило одного из ваших бойцов и теперь в вашей армии всего " + hrac.getArmySize() + " воинов";
     }
 
+    /**
+     *  Metoda vrací název příkazu (slovo které používá hráč pro jeho vyvolání)
+     *
+     *  @ return nazev prikazu
+     */
     @Override
     public String getNazev() {
         return NAZEV;

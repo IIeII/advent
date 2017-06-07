@@ -1,7 +1,5 @@
 package logika;
 
-import logika.interactiveObjects.Entity;
-
 import java.util.*;
 import java.util.stream.Collectors;
 

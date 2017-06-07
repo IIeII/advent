@@ -1,8 +1,6 @@
 package logika;
 
 
-import logika.interactiveObjects.Entity;
-
 import java.util.Random;
 
 /**
@@ -30,7 +28,7 @@ public class HerniPlan {
     }
     /**
      *  Vytváří jednotlivé prostory a propojuje je pomocí východů.
-     *  Jako výchozí aktuální prostor nastaví domeček.
+     *  Vytvoří herních objektů a umístí je do prostory
      */
     private void zalozProstoryHry() {
         // vytvářejí se jednotlivé prostory

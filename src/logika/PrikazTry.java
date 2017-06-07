@@ -2,6 +2,13 @@ package logika;
 
 import java.util.Random;
 
+/**
+ *  Třída PrikazTry implementuje pro hru příkaz která se může stát s určitou pravděpodobností
+ *  Tato třída je součástí jednoduché textové hry.
+ *
+ *@author     Valeria Nekhimchuk
+ *@version    pro školní rok 2016/2017
+ */
 public class PrikazTry implements IPrikaz {
 
     private static final String NAZEV = "try";
@@ -9,12 +16,27 @@ public class PrikazTry implements IPrikaz {
     private Hrac hrac;
     private Random rand;
 
+    /**
+     *  Konstruktor třídy
+     *
+     *  @param plan herní plán, získat aktuální prostor
+     *  @param hrac copy třída hrac
+     */
     public PrikazTry(HerniPlan plan, Hrac hrac) {
 
         this.plan = plan;
         this.hrac = hrac;
         rand = new Random();
     }
+
+    /**
+     *  Provádí příkaz "try". Implementuje mechanismus umožní spouštět příkazy,
+     *  které jsou výsledkem nemůže být neustále mění v závislosti na Random
+     *
+     *@param parametry - jako parametr přijímá příkazy, názvy
+     *
+     *@return zpráva, kterou vypíše hra hráči
+     */
     @Override
     public String provedPrikaz(String... parametry) {
 
@@ -45,7 +67,11 @@ public class PrikazTry implements IPrikaz {
 
         return errorText;
     }
-
+    /**
+     *  Metoda vrací název příkazu (slovo které používá hráč pro jeho vyvolání)
+     *
+     *  @ return nazev prikazu
+     */
     @Override
     public String getNazev() {
         return NAZEV;

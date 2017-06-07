@@ -52,6 +52,11 @@ public class PrikazUse implements IPrikaz {
         return errorText;
     }
 
+    /**
+     *  Metoda vrací název příkazu (slovo které používá hráč pro jeho vyvolání)
+     *
+     *  @ return nazev prikazu
+     */
     @Override
     public String getNazev() {
         return NAZEV;
