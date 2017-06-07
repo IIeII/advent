@@ -1,12 +1,12 @@
 package logika;
 
-public class PrikazAction implements IPrikaz {
+public class PrikazUse implements IPrikaz {
 
-    private static final String NAZEV = "action";
+    private static final String NAZEV = "use";
     private final HerniPlan plan;
     private final Hrac hrac;
 
-    public PrikazAction(HerniPlan plan, Hrac hrac) {
+    public PrikazUse(HerniPlan plan, Hrac hrac) {
 
         this.plan = plan;
         this.hrac = hrac;

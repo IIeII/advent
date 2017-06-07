@@ -1,18 +1,19 @@
 package logika.interactiveObjects;
 
 import logika.IInteraktiv;
+import logika.InventoryItem;
 
 public class Entity implements IInteraktiv {
 
     private final String name;
     private final String description;
     private final String rewardDescription;
-    private final String reward;
+    private final InventoryItem reward;
     private final String expectedCommand;
     private final int expectedType;
     private final int armyReward;
 
-    public Entity(String name, String description, String rewardDescription, String reward, String expectedCommand, int expectedType, int armyReward) {
+    public Entity(String name, String description, String rewardDescription, InventoryItem reward, String expectedCommand, int expectedType, int armyReward) {
         this.name = name;
         this.description = description;
         this.rewardDescription = rewardDescription;
@@ -43,7 +44,7 @@ public class Entity implements IInteraktiv {
     }
 
     @Override
-    public String getReward() {
+    public InventoryItem getReward() {
         return reward;
     }
 

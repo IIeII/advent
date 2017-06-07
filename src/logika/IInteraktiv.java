@@ -12,7 +12,7 @@ public interface IInteraktiv {
 
     public String getRewardDescription();
 
-    public String getReward();
+    public InventoryItem getReward();
 
     public int getExpectedType();
 

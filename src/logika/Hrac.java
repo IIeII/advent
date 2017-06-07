@@ -20,6 +20,10 @@ public class Hrac {
         armySize += count;
     }
 
+    public void decreaseArmy(){
+        armySize--;
+    }
+
     public int getArmySize(){
         return armySize;
     }
@@ -31,11 +35,24 @@ public class Hrac {
     }
 
     public void removeItemFromInventory(String itemName){
-        inventar.remove(itemName);
+        for (InventoryItem item : inventar){
+            if (item.getName().equals(itemName)){
+                inventar.remove(item);
+                break;
+            }
+        }
+
     }
 
     public Boolean hasItemInInventory(String itemName){
-        return inventar.contains(itemName);
+
+        for (InventoryItem item : inventar){
+            if (item.getName().equals(itemName)){
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public String getInventoryItemsNames (){

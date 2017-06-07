@@ -1,11 +1,12 @@
 package logika;
 
-public class PrikazProzkoumej implements IPrikaz {
+public class PrikazCheck implements IPrikaz {
 
-    private static final String NAZEV = "prozkoumej";
+    private static final String NAZEV = "check";
     private HerniPlan plan;
 
-    public PrikazProzkoumej(HerniPlan plan) {
+
+    public PrikazCheck(HerniPlan plan) {
 
         this.plan = plan;
     }
@@ -13,12 +14,10 @@ public class PrikazProzkoumej implements IPrikaz {
     @Override
     public String provedPrikaz(String... parametry) {
 
-        String result = "Осмотревшись вокруг вы видите: ";
-        String emptySpace = "Осмотревшись Вы не замечаете ничего интересного вокруг";
         String wrongParam = "Не понимаю о чем ты. Проверь комманду";
 
         if (parametry.length == 0) {
-            return plan.getAktualniProstor().getObjectNames() == null ? emptySpace : result + plan.getAktualniProstor().getObjectNames();
+            return "Укажи в параметрах какой обьект ты бы хотел проверить";
         }
 
         IInteraktiv object = plan.getAktualniProstor().getInteractiveObjectByName(parametry[0]);
