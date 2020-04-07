@@ -1,0 +1,31 @@
+{
+  "options": [
+    {
+      "key": "First item",
+      "value": "100",
+      "enabled": true
+    },
+    {
+      "key": "Second item",
+      "value": "200",
+      "enabled": true
+    },
+    {
+      "key": "Third item",
+      "value": "300",
+      "enabled": false
+    },
+    {
+      "key": "Fourth item",
+      "value": "400",
+      "enabled": 0
+    },
+    {
+      "key": "Fifth item",
+      "value": "500",
+      "enabled": true,
+      "default": true
+    }
+
+  ]
+}
