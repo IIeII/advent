@@ -8,7 +8,7 @@
     {
       "key": "Second item",
       "value": "200",
-      "enabled": true
+      "enabled": false
     },
     {
       "key": "Third item",
